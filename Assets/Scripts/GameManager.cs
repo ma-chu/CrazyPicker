@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
         float x = Mathf.Abs(worldPosition.x/*_pData.e[0].pressPosition.x*/ - currentX);
         float y = Mathf.Abs(worldPosition.y/*_pData.pressPosition.y*/ - currentY);
 
-        if ((x <= 0.5f) && (y <= 0.5f) && BonusesVis[currentBonus].activeSelf)
+        if (BonusesVis[currentBonus].activeSelf && (x <= 0.5f) && (y <= 0.5f))
         {
             BonusesVis[currentBonus].SetActive(false);
             count += Bonuses[currentBonus].Reward;
@@ -110,6 +110,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
         }
     }
+
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.R))
